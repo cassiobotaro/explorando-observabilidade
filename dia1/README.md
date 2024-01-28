@@ -11,11 +11,15 @@ Uma aplicação utilizando o pacote padrão `net/http` com métricas fornecidas 
 
 Para rodar a aplicação utilize o comando:
 
-`go run .`
+```sh
+go run .
+```
 
 Para acessar a rota de lançamentos de dados:
 
-`curl `
+```
+curl  localhost:8080/lançardado
+```
 
 ## Notas:
 

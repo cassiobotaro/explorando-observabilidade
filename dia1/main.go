@@ -39,11 +39,11 @@ func main() {
 
 	// Cria um novo roteador para o servidor web
 	rotas := http.NewServeMux()
-	// Registra a rota /lançardado
+	// Registra a rota /lançardados
 	rotas.Handle(
-		"/lançardado",
+		"/lançardados",
 		// WithRouteTag anota uma métrica(adiciona atributo) com o nome da rota (http.route)
-		otelhttp.WithRouteTag("/lançardado", http.HandlerFunc(lançarDado)))
+		otelhttp.WithRouteTag("/lançardados", http.HandlerFunc(lançarDados)))
 
 	// O controlador é um middleware que coleta métricas para cada rota registrada
 	// e as exporta para o provedor de métricas

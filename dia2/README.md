@@ -17,7 +17,7 @@ go run .
 
 Para acessar a rota de lançamentos de dados:
 
-```
+```sh
 curl  localhost:8080/lançardados
 ```
 

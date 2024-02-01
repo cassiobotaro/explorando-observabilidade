@@ -1,4 +1,4 @@
-module dia1
+module dia2
 
 go 1.21.6
 

@@ -2,11 +2,12 @@
 
 🔭 Explorando e tomando notas sobre o mundo de observabilidade com Open Telemetry.
 
-| Dia | Titulo                           |
-| --: | :------------------------------- |
-|   1 | [otel + net/http](./dia1/)       |
-|   2 | [Métrica personalizada](./dia2/) |
-|   3 | [Métricas - Contadores](./dia3/) |
+| Dia | Título                                  |
+| --: | :-------------------------------------- |
+|   1 | [otel + net/http](./dia1/)              |
+|   2 | [Métrica personalizada](./dia2/)        |
+|   3 | [Métricas - Contadores](./dia3/)        |
+|   4 | [Métricas - Contadores UpDown](./dia4/) |
 
 Ideias futuras:
 

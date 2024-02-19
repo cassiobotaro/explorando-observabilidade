@@ -1,4 +1,4 @@
-# Dia 3 - Métricas - Contador UpDown
+# Dia 4 - Métricas - Contador UpDown
 
 Aplicação que demonstra a utilização de contadores que podem incrementar e decrementar.
 
@@ -42,6 +42,7 @@ Para filtrar a saída e observar o valor da métrica atualizando a medida que it
 ```sh
 go run . | jq '.ScopeMetrics[].Metrics[].Data.DataPoints[] | {Valor: .Value}'
 ```
+
 Assim como no [dia 3](../dia3/) utilizamos contadores, mas dessa vez com a diferença de que podemos ter valores negativos e seu valor pode ser decrementado durante a execução do sistema.
 
 Os contadores UpDown NÃO são somente incrementos ou decrementos unários(+1).

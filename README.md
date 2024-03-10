@@ -14,7 +14,6 @@
 Ideias futuras:
 
 - Diferentes tipos de métricas
-  - Observable (Async) UpDown Counters
   - Observable (Async) Gauges
 - Atributos em métricas
 - Visões de métricas

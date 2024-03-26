@@ -11,6 +11,9 @@
 |    5 | [Métricas - Histogramas](./dia5/)                    |
 |    6 | [Métricas - Contadores Observáveis (Async)](./dia6/) |
 
+Extras:
+- Recomendo assistir a [playlist](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IL2SzHv1CHaBBHJEvHZE0m) sobre Observabilidade e Open Telemetry do [@dunossauro](https://github.com/dunossauro). 
+
 Ideias futuras:
 
 - Diferentes tipos de métricas

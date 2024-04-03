@@ -10,7 +10,8 @@ A instrumentação assíncrona é útil em várias circunstâncias, por exemplo:
 Alguns exemplos da utilização desta métrica:
 
 - O número máximo permitido de conexões abertas ociosas;
-- O número de bytes em uso em heap;
+- Tempo que levou para obter uma conexão aberta de um pool de conexões;
+- Numero de conexões ativas em um pool de conexões;
 - Número de goroutines que existem atualmente;
 
 ## Pré-requisitos

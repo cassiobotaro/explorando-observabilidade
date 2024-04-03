@@ -29,3 +29,7 @@ updates:
     directory: "dia6/" # Location of package manifests
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gomod" # See documentation for possible values
+    directory: "dia7/" # Location of package manifests
+    schedule:
+      interval: "weekly"

@@ -5,7 +5,7 @@ go 1.22.0
 require (
 	github.com/mattn/go-sqlite3 v1.14.22
 	go.opentelemetry.io/otel v1.25.0
-	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.24.0
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.25.0
 	go.opentelemetry.io/otel/metric v1.25.0
 	go.opentelemetry.io/otel/sdk/metric v1.25.0
 )

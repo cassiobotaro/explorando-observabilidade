@@ -3,7 +3,7 @@ module dia6
 go 1.22.0
 
 require (
-	github.com/mattn/go-sqlite3 v1.14.22
+	github.com/mattn/go-sqlite3 v1.14.23
 	go.opentelemetry.io/otel v1.29.0
 	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.29.0
 	go.opentelemetry.io/otel/metric v1.29.0

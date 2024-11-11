@@ -5,7 +5,7 @@ toolchain go1.22.5
 
 require (
 	go.opentelemetry.io/otel v1.32.0
-	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.31.0
+	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.32.0
 	go.opentelemetry.io/otel/metric v1.32.0
 	go.opentelemetry.io/otel/sdk/metric v1.32.0
 )

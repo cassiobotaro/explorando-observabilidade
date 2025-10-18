@@ -13,7 +13,12 @@
 |   7 | [Métricas - Contadores UpDown Observáveis (Async)](./dia7/) |
 
 Extras:
-- Recomendo assistir a [playlist](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IL2SzHv1CHaBBHJEvHZE0m) sobre Observabilidade e Open Telemetry do [@dunossauro](https://github.com/dunossauro). 
+- Recomendo assistir a [playlist](https://www.youtube.com/playlist?list=PLOQgLBuj2-3IL2SzHv1CHaBBHJEvHZE0m) sobre Observabilidade e Open Telemetry do [@dunossauro](https://github.com/dunossauro).
+
+## Pré-requisitos
+- [Python](https://www.python.org/)
+- [uv](https://docs.astral.sh/uv/)
+- [jq](https://jqlang.github.io/jq/)
 
 Ideias futuras:
 
@@ -33,7 +38,6 @@ Ideias futuras:
 - Instrumentção manual / automática
 - Instrumentação Python
 - Instrumentação Java
-- FastAPI + OTEL
 - Load Balancer
 - Testes de carga
 - Tracetest

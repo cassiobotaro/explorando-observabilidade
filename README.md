@@ -28,7 +28,7 @@ Ideias futuras:
 - Visões de métricas
 - Adicionar trace
 - Trace + complexo
-- Como lidar com logs (slog?), mesmo que sdk ainda não tenha ponte
+- Como lidar com logs mesmo que sdk ainda não tenha ponte?
 - Exportar métrica para alguma ferramenta / collector
 - Exportar trace para alguma ferramenta / collector
 - Exportar logs para alguma ferramenta / collector
@@ -36,6 +36,10 @@ Ideias futuras:
 - Sampling
 - Processors do coletor otel
 - Instrumentção manual / automática
-- Load Balancer
+- coletor Load Balancer
 - Testes de carga
 - Tracetest
+- logfire
+- rastros de banco de dados
+- rastros de clientes http
+

@@ -8,37 +8,32 @@ Alguns exemplos da utilização de Contadores:
 - Distribuição de tipos de erros: Visualizar a frequência de diferentes tipos de erros, ajudando a identificar os problemas mais comuns e suas causas.
 - Tempo de processamento de eventos: Medir o tempo que o sistema leva para processar eventos, como transações ou mensagens, detectando gargalos na infraestrutura.
 
-## Pré-requisitos
-
-- [Go](https://go.dev)
-- [Jq](https://jqlang.github.io/jq/)
-
 ## Como rodar
 
 Para rodar a aplicação utilize o comando:
 
 ```sh
-go run .
+python app.py
 ```
 
 Para acessar o servidor:
 
 ```sh
-curl localhost:8080
+curl localhost:8080/tarefa
 ```
 
-A resposta não possui conteúdo, e pode levar até 10 segundos.
+A resposta levará entre 0.5 a 6.5 segundos.
 
 ## Notas:
 
 Para filtrar a saída e observar o valores gravados distribuídos em diferentes baldes(buckets) utilizamos o comando abaixo:
 
 ```sh
- go run main.go | jq  '.ScopeMetrics[].Metrics[].Data.DataPoints[0] | {Bounds, BucketCounts, Count}'
+ python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name == "tarefa.duracao") | .data.data_points[] | { limites_buckets: .explicit_bounds, contagens: .bucket_counts }'
 ```
 
-Os limites(Bounds) de cada balde(BucketCounts) do histograma são incrementados conforme mais registros são adicionados à distribuição.
+Os limites(explicit_bounds) de cada balde(bucket_counts) do histograma são incrementados conforme mais registros são adicionados à distribuição.
 
-Além disto temos um contador(Count) do número total de elementos adicionados a distribuição.
+Além disto temos um contador(count) do número total de elementos adicionados a distribuição.
 
-É possível definir os limites do histograma com a opção `metric.WithExplicitBucketBoundaries()`.
+É possível definir os limites do histograma com a opção `explicit_bucket_boundaries_advisory`.

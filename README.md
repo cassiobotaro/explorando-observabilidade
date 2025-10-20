@@ -24,10 +24,9 @@ Ideias futuras:
 
 - Diferentes tipos de métricas
   - Observable (Async) Gauges
-- Atributos em métricas
-- Visões de métricas
 - Adicionar trace
 - Trace + complexo
+- Visões de métricas
 - Como lidar com logs mesmo que sdk ainda não tenha ponte?
 - Exportar métrica para alguma ferramenta / collector
 - Exportar trace para alguma ferramenta / collector

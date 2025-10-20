@@ -11,7 +11,7 @@ from opentelemetry.sdk.metrics.export import (
 )
 
 # De quanto em quanto tempo as métricas serão exportadas
-INTERVALO_EXPORTACAO_EM_SEGUNDOS = 10
+INTERVALO_EXPORTACAO_MS = 10_000  # 10s
 
 # Cria um novo exportador de métricas para stdout (console, no nosso caso)
 exportador_metricas = ConsoleMetricExporter()
@@ -25,7 +25,7 @@ leitor_metricas = PeriodicExportingMetricReader(
     # Para fins demonstrativos, alteramos o intervalo de coleta
     # de métricas para alguns segundos.
     # O padrão é 1 minuto.
-    export_interval_millis=INTERVALO_EXPORTACAO_EM_SEGUNDOS,
+    export_interval_millis=INTERVALO_EXPORTACAO_MS,
 )
 
 # Cria um novo fornecedor de medidores que é responsável por gerenciar

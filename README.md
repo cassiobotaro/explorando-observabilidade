@@ -36,8 +36,6 @@ Ideias futuras:
 - Sampling
 - Processors do coletor otel
 - Instrumentção manual / automática
-- Instrumentação Python
-- Instrumentação Java
 - Load Balancer
 - Testes de carga
 - Tracetest

@@ -3,7 +3,6 @@ from random import randint
 import uvicorn
 from fastapi import FastAPI
 from opentelemetry import metrics
-from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.sdk.metrics import MeterProvider
 from opentelemetry.sdk.metrics.export import (
     ConsoleMetricExporter,
@@ -37,6 +36,20 @@ fornecedor_medidores = MeterProvider(metric_readers=[leitor_metricas])
 # registra o fornecedor de medidores criado como o global
 metrics.set_meter_provider(fornecedor_medidores)
 
+# poderia ser fornecedor_medidores.get_meter mas vamos assim pois ele é global
+metrificador = metrics.get_meter("lançardado")
+
+# contador_rolagens é uma métrica que conta o número de rolagens
+# de dados por valor de rolagem
+# Ex: 3 vezes o número 1, 2 vezes o número 2 etc
+contador_rolagens = metrificador.create_counter(
+    name="dado.rolagens",
+    description="O número de rolagens por valor de rolagem",
+    # A unidade de medida é definida como "{lancamento}" para que o valor
+    # pluralizado seja exibido corretamente
+    unit="{lancamento}",
+)
+
 # Inicia uma aplicação web
 app = FastAPI()
 
@@ -45,12 +58,19 @@ app = FastAPI()
 @app.get("/lançar_dado")
 def lançar_dado():
     # A rolagem de dados é feita com um número aleatório entre 1 e 6
-    return randint(1, 6)
+    rolagem = randint(1, 6)
 
-
-# Instrumenta a aplicação provendo algumas métricas http
-# como número de requisições ativas, tempo de resposta, etc.
-FastAPIInstrumentor.instrument_app(app)
+    # Um atributo personalizado é criado com o valor da rolagem
+    atributo_valor_rolagem = {"dado.valor": rolagem}
+    # O atributo personalizado "dados.valor" é usado para agrupar as métricas
+    # por valor de rolagem
+    contador_rolagens.add(
+        # O contador de rolagens é incrementado com o atributo personalizado
+        1,
+        attributes=atributo_valor_rolagem,
+    )
+    # o resultado é retornado
+    return rolagem
 
 
 if __name__ == "__main__":

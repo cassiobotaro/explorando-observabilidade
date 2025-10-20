@@ -25,6 +25,5 @@ A métrica personalizada `dado.rolagens` quantifica o número de rolagens(lança
 Através do comando abaixo, filtramos a saída para ficar mais legível o valor e o número de vezes que foi rolado.
 
 ```sh
-python app.py | jq '.resource_metrics[].scope_metrics[].metrics[].data.data_points[] | {rolagem: .attributes."dado.valor", vezes:
-.value}'
+python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name == "dado.rolagens") | .data.data_points[] | {rolagem: .attributes."dado.valor", vezes: .value}'
 ```

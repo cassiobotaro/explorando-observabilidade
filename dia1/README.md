@@ -35,7 +35,7 @@ descrição: Mede o tamanho das mensagens de resposta HTTP (compactadas).
 python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | {nome: .name, descricao: .description}'
 ```
 
-_Como ver uma métrica de forma indivdual_
+_Como ver uma métrica de forma individual_
 
 Podemos selecionar a métrica através do seu nome assim evitando a saída mais poluída.
 
@@ -45,7 +45,7 @@ Exemplo:
 python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name == "http.server.duration")'
 ```
 
-_O são esses atributos adicionados em cada métrica?_
+_O que são esses atributos adicionados em cada métrica?_
 
 Alguns atributos são adicionados a cada uma das métricas para ajudar em agregações e buscas.
 Para vê-los, utilize o comando abaixo:

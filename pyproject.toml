@@ -9,4 +9,5 @@ dependencies = [
     "opentelemetry-api>=1.38.0",
     "opentelemetry-instrumentation-fastapi>=0.59b0",
     "opentelemetry-sdk>=1.38.0",
+    "psutil>=6.1.0",
 ]

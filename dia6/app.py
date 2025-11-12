@@ -10,7 +10,7 @@ from opentelemetry.sdk.metrics.export import (
 )
 
 # Captura o tempo de início da aplicação
-START_TIME = time.time()
+TEMPO_INICIO = time.time()
 
 # De quanto em quanto tempo as métricas serão exportadas
 INTERVALO_EXPORTACAO_MS = 10_000  # 10s
@@ -32,7 +32,7 @@ leitor_metricas = PeriodicExportingMetricReader(
 
 # Cria um novo fornecedor de medidores que é responsável por gerenciar
 # os recursos necessários para coletar e exportar métricas
-# O leitor de métricas periódico é vinculado com o(s) leitor(es) do forncedor de métricas, sendo assim
+# O leitor de métricas periódico é vinculado com o(s) leitor(es) do fornecedor de métricas, sendo assim
 # exportados (na console, no nosso caso).
 fornecedor_medidores = MeterProvider(metric_readers=[leitor_metricas])
 
@@ -46,7 +46,7 @@ metrificador = metrics.get_meter("app")
 def observar_duracao_app(_):
     # Quando invocado, esta função retorna a duração desde o início da aplicação
     # o parâmetro de opções da observação não é utilizado aqui por isso _
-    yield metrics.Observation(time.time() - START_TIME)
+    yield metrics.Observation(time.time() - TEMPO_INICIO)
 
 
 # define uma métrica do tipo observable gauge para medir a duração desde o início do aplicativo

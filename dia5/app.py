@@ -30,7 +30,7 @@ leitor_metricas = PeriodicExportingMetricReader(
 
 # Cria um novo fornecedor de medidores que é responsável por gerenciar
 # os recursos necessários para coletar e exportar métricas
-# O leitor de métricas periódico é vinculado com o(s) leitor(es) do forncedor de métricas, sendo assim
+# O leitor de métricas periódico é vinculado com o(s) leitor(es) do fornecedor de métricas, sendo assim
 # exportados (na console, no nosso caso).
 fornecedor_medidores = MeterProvider(metric_readers=[leitor_metricas])
 
@@ -42,7 +42,7 @@ metrificador = metrics.get_meter("api")
 
 # Como a execução será aleatória entre 0.5 e 6.5 segundos, vamos definir os seguintes baldes
 # para distribuição explícita do histograma
-boundaries = [
+limites = [
     0.5,  # 500ms
     1.0,  # 1s
     1.5,  # 1.5s
@@ -59,7 +59,7 @@ histograma_duracao_tarefa = metrificador.create_histogram(
     name="tarefa.duracao",
     description="A duração da execução da tarefa.",
     unit="s",
-    explicit_bucket_boundaries_advisory=boundaries,
+    explicit_bucket_boundaries_advisory=limites,
 )
 
 # Inicia uma aplicação web
@@ -69,17 +69,17 @@ app = FastAPI()
 @app.get("/tarefa")
 def executa_tarefa():
     # verifica o horário que a tarefa inicou a execução
-    start_time = time.perf_counter()
+    tempo_inicio = time.perf_counter()
     # simula a execução de uma tarefa com um delay
     # Mantendo o intervalo aleatório entre 0.5 e 6.5 segundos
-    delay_seconds = random.uniform(0.5, 6.5)
-    time.sleep(delay_seconds)
+    atraso_segundos = random.uniform(0.5, 6.5)
+    time.sleep(atraso_segundos)
 
     # após a execução da tarefa, registra a duração no histograma
-    end_time = time.perf_counter()
-    duration = end_time - start_time
+    tempo_fim = time.perf_counter()
+    duracao = tempo_fim - tempo_inicio
     histograma_duracao_tarefa.record(
-        duration, attributes={"tarefa.tipo": "processamento_pesado"}
+        duracao, attributes={"tarefa.tipo": "processamento_pesado"}
     )
     return {"mensagem": "Demorô um cadim!"}
 

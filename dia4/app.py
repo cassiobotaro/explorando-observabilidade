@@ -29,7 +29,7 @@ leitor_metricas = PeriodicExportingMetricReader(
 
 # Cria um novo fornecedor de medidores que é responsável por gerenciar
 # os recursos necessários para coletar e exportar métricas
-# O leitor de métricas periódico é vinculado com o(s) leitor(es) do forncedor de métricas, sendo assim
+# O leitor de métricas periódico é vinculado com o(s) leitor(es) do fornecedor de métricas, sendo assim
 # exportados (na console, no nosso caso).
 fornecedor_medidores = MeterProvider(metric_readers=[leitor_metricas])
 
@@ -55,7 +55,7 @@ app = FastAPI()
 
 
 @app.middleware("http")
-async def middleware_de_requições_ativas(request, call_next):
+async def middleware_de_requisições_ativas(request, call_next):
     # ao iniciar a requisição, incrementa o contador de requisições ativas
     contador_requisições_ativas.add(
         1, attributes={"endpoint": request.url.path, "metodo": request.method}

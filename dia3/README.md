@@ -45,7 +45,7 @@ Assim como no dia 2, a aplicação também define uma métrica personalizada que
 Esta contagem será agregada através da utilização de atributos. Será necessário chamar a rota `/lançar_dado` algumas vezes para gerar dados suficientes.
 
 ```sh
-python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name == "dado.rolagens") | {rolagem: .attributes."dado.valor", vezes: .value}'
+python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name == "dado.rolagens") | .data.data_points[] | {rolagem: .attributes."dado.valor", vezes: .value}'
 ```
 
 Cuidado ao utilizar atributos, pois pode gerar uma alta cardinalidade de métricas, ou seja, muitas combinações de atributos que podem impactar a performance do sistema de monitoramento.

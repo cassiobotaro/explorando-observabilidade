@@ -49,8 +49,9 @@ def observar_duracao_app(_):
     yield metrics.Observation(time.time() - TEMPO_INICIO)
 
 
-# define uma métrica do tipo observable gauge para medir a duração desde o início do aplicativo
-metrificador.create_observable_gauge(
+# define uma métrica do tipo observable counter para medir a duração desde o início do aplicativo
+# Observable Counter é apropriado aqui pois o tempo de atividade é monotonicamente crescente
+metrificador.create_observable_counter(
     name="app.atividade.tempo",
     # função chamada para observar o valor da métrica
     callbacks=[observar_duracao_app],

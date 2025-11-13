@@ -45,6 +45,12 @@ Para acessar a rota principal:
 curl localhost:8080/
 ```
 
+Para criar threads temporárias e observar mudanças na contagem:
+
+```sh
+curl localhost:8080/criar_threads
+```
+
 ## Notas:
 
 Para filtrar a saída e observar o uso de CPU:
@@ -67,4 +73,7 @@ python app.py | jq '.resource_metrics[].scope_metrics[].metrics[] | select(.name
 
 Observe que estes valores representam snapshots instantâneos do estado do sistema - cada leitura é independente e representa o estado atual, não valores acumulados ao longo do tempo.
 
-A principal diferença entre este dia e o dia 6 é conceitual: no dia 6, medíamos tempo de atividade (valor crescente/cumulativo que poderia ser um counter), enquanto aqui medimos valores instantâneos verdadeiros como uso de CPU e memória.
+**Por que usar Gauge em vez de UpDown Counter?**
+- **Uso de CPU (%)**: É uma medida instantânea relativa, não um contador absoluto. 50% de CPU não é "50 unidades de algo contável".
+- **Memória (MB)**: Embora seja um valor que pode aumentar/diminuir, representa um estado instantâneo não-aditivo do sistema.
+- **Threads**: Embora pudesse ser um UpDown Counter (contagem de recursos), como Gauge representa melhor a ideia de "quantidade atual neste momento".

@@ -9,11 +9,13 @@ A instrumentação assíncrona é útil em várias circunstâncias, por exemplo:
 
 Alguns exemplos da utilização de Contadores Observáveis:
 
-- **Tempo de atividade da aplicação (uptime)**: Mede há quanto tempo a aplicação está rodando em segundos. Coletado periodicamente através de um callback que calcula a diferença entre o tempo atual e o tempo de inicialização.
-- **Uso de CPU do processo**: Percentual de CPU utilizado pelo processo, consultado periodicamente através de APIs do sistema operacional. Evita polling constante que consumiria mais CPU.
-- **Uso de memória**: Total de memória (heap, stack) alocada pela aplicação, obtida periodicamente através de estatísticas do runtime. Não requer instrumentação manual em cada alocação.
-- **Número de threads ativas**: Quantidade de threads em execução no processo, consultada periodicamente através do módulo `threading`. Útil para detectar vazamentos de threads ou monitorar o pool de workers.
-- **Estatísticas de Garbage Collector**: Métricas como número de ciclos de GC executados, tempo total de pausa, etc. Coletadas do runtime sem impacto na aplicação.
+- **Tempo de atividade da aplicação (uptime)**: Mede há quanto tempo a aplicação está rodando em segundos. Coletado periodicamente através de um callback que calcula a diferença entre o tempo atual e o tempo de inicialização. Valor sempre crescente.
+- **Total de bytes processados**: Soma cumulativa de todos os bytes lidos/escritos desde o início da aplicação, obtida periodicamente consultando estatísticas do processo.
+- **Tempo total de CPU consumido**: Total acumulado de CPU time usado pelo processo desde seu início, consultado periodicamente através de APIs do sistema operacional.
+- **Contador de page faults**: Número total de page faults ocorridos desde o início do processo, obtido periodicamente através de estatísticas do sistema.
+- **Estatísticas de Garbage Collector**: Métricas como número total de ciclos de GC executados desde o início, tempo total acumulado de pausa, etc. Coletadas do runtime sem impacto na aplicação.
+
+Observable Counters são apropriados para valores que **apenas crescem** ao longo do tempo. Se o valor pode aumentar e diminuir, use Observable UpDown Counter (Dia 7). Se o valor é uma medida instantânea não-cumulativa, use Observable Gauge (Dia 8).
 
 Se a cada mudança de CPU gravarmos uma métrica de forma síncrona, o custo computacional seria muito alto. Com contadores observáveis (assíncronos), fazemos leituras periódicas do estado do sistema, reduzindo overhead e permitindo que o coletor de métricas controle a frequência de coleta.
 

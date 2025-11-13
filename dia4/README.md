@@ -9,8 +9,8 @@ Alguns exemplos da utilização de Contadores UpDown:
 - **Contagem de Conexões de Banco de Dados**: Incrementado cada vez que uma nova conexão é estabelecida (+1) e decrementado quando uma conexão é fechada (-1). O valor atual representa o número de conexões ativas no momento.
 - **Contagem de Threads Ativas em um Servidor Web**: Incrementado quando uma nova thread é iniciada para processar uma requisição (+1) e decrementado quando a thread finaliza o processamento (-1). Útil para monitorar a carga atual do servidor.
 - **Contagem de Clientes em uma Fila de Espera**: Incrementado quando um cliente entra na fila (+1) e decrementado quando é atendido e sai da fila (-1). Permite observar o tamanho atual da fila em tempo real.
-- **Uso de Memória em Bytes**: Incrementado quando memória é alocada (+N bytes) e decrementado quando é liberada (-N bytes). O valor representa a quantidade total de memória em uso pela aplicação.
 - **Total de Itens Aguardando Processamento**: Incrementado quando novos itens são adicionados à fila de processamento e decrementado quando são processados. Permite identificar gargalos de processamento.
+- **Saldo de créditos/tokens de uma conta**: Incrementado quando créditos são adicionados e decrementado quando são consumidos. Mantém o saldo atual disponível.
 
 ## Como rodar
 

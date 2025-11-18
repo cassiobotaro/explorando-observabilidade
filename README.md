@@ -90,8 +90,6 @@ Para mais informações sobre o uv, consulte:
 - Sampling
 - Processors do coletor otel
 - Instrumentção manual / automática
-- coletor Load Balancer
-- Testes de carga
 - Tracetest
 - logfire
 - rastros de banco de dados

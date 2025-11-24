@@ -94,4 +94,5 @@ Para mais informações sobre o uv, consulte:
 - logfire
 - rastros de banco de dados
 - rastros de clientes http
+- https://opentelemetry.io/blog/2025/otel-weaver/
 

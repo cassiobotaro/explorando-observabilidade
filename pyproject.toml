@@ -8,6 +8,6 @@ dependencies = [
     "fastapi[standard]>=0.136.0",
     "opentelemetry-api>=1.38.0",
     "opentelemetry-instrumentation-fastapi>=0.59b0",
-    "opentelemetry-sdk>=1.41.0",
+    "opentelemetry-sdk>=1.41.1",
     "psutil>=6.1.0",
 ]
